@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <script>
+
+  function validate() {
+
+           if( document.myForm.Name.value == "" ) {
+             alert( "You did not fill in either your name, email, phone or any!" );
+
+              document.myForm.Name.focus() ;
+              return false;
+           }
+           else {
+             allLetter(document.myForm.Name);
+           }
+
+
+           if( document.myForm.EMail.value == "" ) {
+             alert( "You did not fill in your email!" );
+
+              document.myForm.EMail.focus() ;
+              return false;
+
+
+           }else {
+              ValidateEmail(document.myForm.EMail)
+           }
+
+
+
+           if( document.myForm.Phone.value == ""  ||
+              document.myForm.Phone.value.length != 10 ) {
+                alert( "Phone number needs to be 10 numbers" );
+
+              document.myForm.Zip.focus() ;
+              return false;
+           }else {
+             phonenumber(document.myForm.Phone);
+           }
+
+
+           return( true );
+        }
+
+
+    function phonenumber(inputtxt)
+        {
+          var phoneno = /^\d{10}$/;
+          if(inputtxt.value.match(phoneno))
+          {
+              return true;
+          }
+          else
+          {
+             alert("Not a valid Phone Number");
+             return false;
+          }
+          }
+
+
+
+
+  function allLetter(inputtxt)
+  {
+   var letters = /^[A-Za-z]+$/;
+   if(inputtxt.value.match(letters))
+     {
+      return true;
+     }
+   else
+     {
+     alert("Letters only!");
+     return false;
+     }
+  }
+
+
+
+
+  function ValidateEmail(mail)
+  {
+   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.EMail.value))
+    {
+      return (true)
+    }
+      alert("You have entered an invalid email address!")
+      return (false)
+  }
+
+  </script>
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="form.css">
+</head>
+<h1>Game of thrones form</h1>
+
+<div class="stand">
+  <div class="outer-screen">
+    <div class="inner-screen">
+
+
+<form name = "myForm" class="myForm" onsubmit = "return(validate());" >
+
+<div class="columnnone">
+
+
+        <select class = "dropdown">
+          <div class="options">
+            <option value="title">Ranking</option>
+           <option value="lord">Lord</option>
+           <option value="madam">Madam</option>
+           <option value="sir">Sir</option>
+           <option value="noone">noone</option>
+          </div>
+
+			</select>
+
+
+        <input type="text" name="Name" class="name" placeholder="Enter your name" />
+        <input type="text" name="EMail" class="email" placeholder="Enter your email" />
+        <input type="text" name = "Phone" class = "phone" placeholder="Enter phone (XXXXXXXXXX)" />
+
+        <select class = "dropdown">
+          <div class="options">
+            <option value="title">Favorite GOT Character</option>
+           <option value="Jon">Jon</option>
+           <option value="danni">Danni</option>
+           <option value="Sansa">Sansa</option>
+           <option value="Arya">Arya</option>
+           <option value="cersei">Cersei</option>
+           <option value="jamie">Jamie</option>
+           <option value="tyrion">tryion</option>
+          </div>
+
+      </select>
+    </div>
+
+
+
+    <div class="columntwo">
+
+
+
+        <p>Who will win the thone?</p>
+        <input class="form-radio" type="radio" name="stark" value="male"> House Stark<br>
+        <input class="form-radio" type="radio" name="tar" value="female"> House Targaryen<br>
+        <input class="form-radio" type="radio" name="Lanister" value="other"> House Lanister<br>
+
+
+
+  </div>
+
+  <div class="columnthree">
+
+
+        <p>Do you prefer Jon or Danni?</p>
+        <input type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+        <label for="fruit1">Jon</label>
+
+
+
+        <input type="checkbox" id="fruit4" name="fruit-4" value="Strawberry">
+        <label for="fruit4">Danni</label>
+
+        <input type="submit" value="Submit" />
+
+
+      </div>
+
+
+
+    </form>
+  </div>
+</div>
+
+</html>
